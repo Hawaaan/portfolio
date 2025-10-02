@@ -1,0 +1,37 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+/* subtle grid background */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events:none;
+  z-index:-1;
+}
+.container{
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+.card{
+  @apply bg-zinc-900/60 border border-zinc-800 rounded-2xl shadow-soft;
+}
+.btn{
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium transition active:scale-[.98];
+}
+.btn-primary{
+  @apply btn bg-brand-500 hover:bg-brand-400 text-white;
+}
+.btn-ghost{
+  @apply btn bg-zinc-900/60 hover:bg-zinc-800 border border-zinc-800;
+}
+.h1{@apply text-4xl sm:text-5xl md:text-6xl font-extrabold;}
+.h2{@apply text-3xl sm:text-4xl font-bold;}
+.h3{@apply text-2xl font-semibold;}
+.muted{@apply text-zinc-400;}
+.section{@apply py-16 sm:py-20 md:py-28;}
+.badge{@apply inline-flex items-center rounded-full border border-zinc-700 px-2.5 py-1 text-xs uppercase tracking-wide text-zinc-300;}
