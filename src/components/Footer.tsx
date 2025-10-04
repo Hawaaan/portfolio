@@ -1,14 +1,23 @@
 // src/components/Footer.tsx
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Instagram, Mail, Phone } from "lucide-react";
+import React from "react";
+
+/**
+ * Ultra-Unique Footer — "Ribbon & Tiles"
+ * - Signature animated ribbon divider (SVG stroke animation)
+ * - Mosaic link tiles with icons
+ * - Orbiting badge socials (distinct glow but subtle)
+ * - No external CSS — Tailwind + Framer Motion only
+ */
 
 export default function Footer(): JSX.Element {
-  const nav = [
-    { href: "#home", label: "Home" },
-    { href: "#services", label: "Services" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#blog", label: "Blog" },
-    { href: "#contact", label: "Contact" },
+  const tiles = [
+    { href: "#home", label: "Home", desc: "Back to start" },
+    { href: "#services", label: "Services", desc: "What I do" },
+    { href: "#portfolio", label: "Portfolio", desc: "Selected work" },
+    { href: "#blog", label: "Blog", desc: "Notes & ideas" },
+    { href: "#contact", label: "Contact", desc: "Say hello" },
   ];
 
   const socials = [
@@ -16,98 +25,140 @@ export default function Footer(): JSX.Element {
     { href: "https://www.linkedin.com/", label: "LinkedIn", Icon: Linkedin },
     { href: "https://twitter.com/", label: "X (Twitter)", Icon: Twitter },
     { href: "https://instagram.com/", label: "Instagram", Icon: Instagram },
-    { href: "mailto:contact@william.design", label: "Email", Icon: Mail },
   ];
 
   return (
-    <footer className="relative z-10 bg-dark text-zinc-300 pt-16 pb-10 px-6 overflow-hidden">
-      {/* ---- Animated Aurora Background ---- */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 -left-24 w-[38rem] h-[38rem] rounded-[40%] bg-gradient-to-br from-brand-500/30 to-fuchsia-500/30 blur-3xl"
-        animate={{ x: [0, 20, -10, 0], y: [0, -10, 10, 0], rotate: [0, 6, -4, 0] }}
-        transition={{ duration: 22, ease: "easeInOut", repeat: Infinity }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-24 -right-24 w-[32rem] h-[32rem] rounded-[40%] bg-gradient-to-br from-fuchsia-500/20 to-brand-500/20 blur-3xl"
-        animate={{ x: [0, -16, 10, 0], y: [0, 12, -8, 0], rotate: [0, -5, 4, 0] }}
-        transition={{ duration: 24, ease: "easeInOut", repeat: Infinity, delay: 2 }}
-      />
-
-      {/* Watermark (softer, responsive) */}
-      <div className="absolute inset-0 flex justify-center items-center pointer-events-none select-none">
-        <h1 className="text-[8rem] md:text-[12rem] font-extrabold tracking-tight text-zinc-800/20">
-          Eng-zoja
-        </h1>
+    <footer className="relative overflow-hidden bg-zinc-950 text-zinc-300 selection:bg-brand-500/30 selection:text-white">
+      {/* --- Signature Ribbon Divider --- */}
+      <div className="relative">
+        <svg className="block w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden>
+          <defs>
+            <linearGradient id="ribbonGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#7c3aed"/>
+              <stop offset="50%" stopColor="#ec4899"/>
+              <stop offset="100%" stopColor="#06b6d4"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,80 C180,40 360,110 540,70 C720,30 900,90 1080,60 C1260,30 1350,40 1440,30 L1440,0 L0,0 Z" fill="#0b0b0b"/>
+          <path
+            d="M0,78 C180,38 360,108 540,68 C720,28 900,88 1080,58 C1260,28 1350,38 1440,28"
+            fill="none"
+            stroke="url(#ribbonGrad)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray="14 10"
+          >
+            <animate attributeName="stroke-dashoffset" from="0" to="-400" dur="18s" repeatCount="indefinite"/>
+          </path>
+        </svg>
       </div>
 
-      {/* ---- Content ---- */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="relative container flex flex-col items-center gap-8"
-      >
-        {/* Brand */}
-        <div className="flex items-center gap-3">
-          <span className="grid place-items-center w-10 h-10 rounded-xl bg-brand-600 text-white font-bold">
-            EZ
-          </span>
-          <span className="font-semibold text-white">Eng-zoja</span>
+      {/* --- Content Shell --- */}
+      <div className="relative max-w-7xl mx-auto px-6 pb-14">
+        {/* Top Row: Badge + Pitch */}
+        <div className="mt-2 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          {/* Brand badge with orbital dot */}
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <motion.span
+                className="grid place-items-center w-14 h-14 rounded-2xl text-white font-bold bg-gradient-to-tr from-brand-600 to-fuchsia-500 shadow-[0_0_40px_-12px_rgba(236,72,153,0.45)]"
+                whileHover={{ scale: 1.04 }}
+              >
+                EZ
+              </motion.span>
+              {/* orbiting dot */}
+              <motion.span
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 rounded-full"
+                style={{ border: "1px dashed rgba(255,255,255,0.18)" }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 16, ease: "linear", repeat: Infinity }}
+              />
+              <motion.span
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 16, ease: "linear", repeat: Infinity }}
+              >
+                <span className="block h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]" style={{ transform: "translate(30px, 0)" }} />
+              </motion.span>
+            </div>
+            <div>
+              <h3 className="text-white text-xl font-semibold leading-tight">Eng-zoja</h3>
+              <p className="text-sm text-zinc-400">Interfaces with personality — fast, elegant, memorable.</p>
+            </div>
+          </div>
+
+          {/* Socials: unique halo buttons */}
+          <div className="flex flex-wrap gap-2">
+            {socials.map(({ href, label, Icon }, i) => (
+              <motion.a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                whileHover={{ y: -2, scale: 1.06 }}
+                whileTap={{ scale: 0.97 }}
+                className="relative inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs backdrop-blur-md"
+              >
+                <span className="absolute inset-0 rounded-full opacity-40 blur-md" style={{ background: "conic-gradient(from 0deg, #7c3aed, #ec4899, #06b6d4, #7c3aed)" }} />
+                <Icon size={16} className="relative z-10" />
+                <span className="relative z-10 hidden sm:inline">{label}</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
 
-        {/* Nav links */}
-        <nav className="flex flex-wrap justify-center gap-6 text-sm">
-          {nav.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-zinc-300 hover:text-white transition"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Socials */}
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {socials.map(({ href, label, Icon }) => (
+        {/* Mosaic Tiles */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          {tiles.map((t, idx) => (
             <motion.a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              whileHover={{ y: -2, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="btn-ghost"
+              key={t.href}
+              href={t.href}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: idx * 0.03 }}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-zinc-900/60 to-zinc-900/20 p-4 hover:border-fuchsia-400/40"
             >
-              <Icon size={18} />
-              <span className="hidden sm:inline">{label}</span>
+              {/* corner accent */}
+              <span className="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-gradient-to-tr from-fuchsia-500/30 to-cyan-400/30 blur-md" />
+              <span className="text-sm font-medium text-white">{t.label}</span>
+              <p className="mt-1 text-xs text-zinc-400">{t.desc}</p>
+              <span className="mt-3 inline-flex items-center gap-2 text-[11px] text-zinc-400">
+                Explore
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="opacity-80">
+                  <path d="M7 17L17 7" stroke="currentColor" strokeWidth="1.6"/>
+                  <path d="M9 7H17V15" stroke="currentColor" strokeWidth="1.6"/>
+                </svg>
+              </span>
+              {/* underline swipe */}
+              <motion.span
+                className="absolute left-4 right-4 bottom-3 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.35 }}
+              />
             </motion.a>
           ))}
-          {/* Quick contact pills */}
-          <span className="hidden sm:inline h-6 w-px bg-zinc-700/60 mx-1" />
-          <a href="tel:+252612910193" className="btn-ghost">
-            <Phone size={18} />
-            +252-612910193
-          </a>
-          <a href="mailto:contact@william.design" className="btn-ghost">
-            <Mail size={18} />
-            abdisalan1221@gmail.com
-          </a>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-zinc-700/60 to-transparent" />
+        <div className="mt-8 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-        {/* Copyright */}
-        <p className="text-xs text-zinc-400 text-center">
-          © {new Date().getFullYear()} Eng-zoja — All rights reserved.
-        </p>
-      </motion.div>
+        {/* Contact & Legal */}
+        <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <a href="tel:+252612910193" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm hover:border-cyan-400/40">
+              <Phone size={16} /> +252-612910193
+            </a>
+            <a href="mailto:abdisalan1221@gmail.com" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm hover:border-emerald-400/40">
+              <Mail size={16} /> abdisalan1221@gmail.com
+            </a>
+          </div>
+
+          <p className="text-[12px] text-zinc-500">© {new Date().getFullYear()} <span className="text-white/90">Eng-zoja</span> — All rights reserved.</p>
+        </div>
+      </div>
     </footer>
   );
 }
