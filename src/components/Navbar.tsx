@@ -34,10 +34,6 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
           {links.map(l => (
             <a key={l.href} className="text-zinc-300 hover:text-white" href={l.href}>{l.label}</a>
           ))}
-          <button onClick={onToggle} className="btn-ghost" aria-label="toggle theme">
-            {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
-            <span className="hidden sm:inline">Theme</span>
-          </button>
         </nav>
 
         <button className="md:hidden btn-ghost" onClick={() => setOpen(v=>!v)} aria-label="menu">
@@ -56,10 +52,6 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
               {links.map(l => (
                 <a key={l.href} className="text-zinc-300 hover:text-white" href={l.href}>{l.label}</a>
               ))}
-              <button onClick={onToggle} className="btn-ghost self-start">
-                {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
-                Theme
-              </button>
             </div>
           </motion.div>
         )}
