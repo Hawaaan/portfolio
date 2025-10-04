@@ -56,14 +56,6 @@ export const skills = [
   { name: "Next.js", value: 88, note: "App Router, SSR/SSG" },
   { name: "Tailwind CSS", value: 92, note: "Design systems + utilities" },
   { name: "Framer Motion", value: 85, note: "Micro-interactions" },
-  { name: "Redux / Zustand", value: 82, note: "State management" },
-  { name: "Vite / Webpack", value: 86, note: "Build tooling" },
-  { name: "Jest + RTL", value: 80, note: "Unit & component tests" },
-  { name: "Cypress", value: 74, note: "E2E testing" },
-  { name: "Storybook", value: 78, note: "UI documentation" },
-  { name: "Accessibility (a11y)", value: 84, note: "WCAG practices" },
-  { name: "Performance", value: 86, note: "Lighthouse, Core Web Vitals" },
-  { name: "SEO", value: 81, note: "Meta, OG, structured data" },
 ];
 
 

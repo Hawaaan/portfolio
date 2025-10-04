@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Instagram, Mail, Phone } from "lucide-react";
 import React from "react";
+import logo from "../assets/avatar.jpeg"
 
 /**
  * Ultra-Unique Footer — "Ribbon & Tiles"
@@ -67,19 +68,6 @@ export default function Footer(): JSX.Element {
                 EZ
               </motion.span>
               {/* orbiting dot */}
-              <motion.span
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 rounded-full"
-                style={{ border: "1px dashed rgba(255,255,255,0.18)" }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 16, ease: "linear", repeat: Infinity }}
-              />
-              <motion.span
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 16, ease: "linear", repeat: Infinity }}
-              >
-                <span className="block h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]" style={{ transform: "translate(30px, 0)" }} />
-              </motion.span>
             </div>
             <div>
               <h3 className="text-white text-xl font-semibold leading-tight">Eng-zoja</h3>

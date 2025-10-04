@@ -1,11 +1,24 @@
-
 import { motion } from 'framer-motion';
+import emailjs from 'emailjs-com';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import toastify styles
 
 export default function Contact(): JSX.Element {
+  const sendEmail = (e) =>  {
+    e.preventDefault();
+
+    emailjs.sendForm('service_yoasfvl', 'template_wjmiogr', e.target, 'HauTBnUroDZdYXQQA')
+      .then((result) => {
+        toast.success("Fariintaada waa la soo diray!"); // Toast for success
+      }, (error) => {
+        toast.error("Fariintaada lama dirin. Fadlan isku day mar kale."); // Toast for error
+      });
+  };
+
   return (
     <section id="contact" className="section">
       <div className="container grid md:grid-cols-2 gap-8 items-start">
-        <motion.div initial={{opacity:0, y:10}} whileInView={{opacity:1, y:0}} viewport={{once:true}} className="space-y-4">
+        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="space-y-4">
           <h2 className="h2">Get in touch</h2>
           <p className="muted">I'm always excited to take on new projects and collaborate with innovative minds.</p>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -24,24 +37,26 @@ export default function Contact(): JSX.Element {
           </div>
         </motion.div>
 
-        <motion.form initial={{opacity:0, y:10}} whileInView={{opacity:1, y:0}} viewport={{once:true}}
-          onSubmit={(e)=>{ e.preventDefault(); alert('Thanks! I\'ll reach out.'); }}
-          className="card p-6 space-y-4">
+        <motion.form initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          onSubmit={sendEmail} className="card p-6 space-y-4">
           <div>
             <label className="text-sm">Name</label>
-            <input required className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2"/>
+            <input name="user_name" required className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2" />
           </div>
           <div>
             <label className="text-sm">Email</label>
-            <input type="email" required className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2"/>
+            <input name="user_email" type="email" required className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2" />
           </div>
           <div>
             <label className="text-sm">Message</label>
-            <textarea required rows={5} className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2"></textarea>
+            <textarea name="message" required rows={5} className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2"></textarea>
           </div>
           <button className="btn-primary">Send message</button>
         </motion.form>
       </div>
+
+      {/* Toast Container */}
+      <ToastContainer />
     </section>
   );
 }
