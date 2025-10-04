@@ -15,7 +15,7 @@ export default function Hero(): JSX.Element {
       <div className="container grid md:grid-cols-2 gap-10 items-center">
         <div>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="text-brand-400 font-medium">👋 Hi there, I'm Eng Zoja</p>
+            <p className="text-brand-400 font-medium text-[33px]">Hi there, I'm Eng Zoja</p>
 
             {/* Title + Rotating subtitle */}
             <h1 className="h1 mt-3 leading-tight">
@@ -41,7 +41,7 @@ export default function Hero(): JSX.Element {
           className="relative"
         >
           <div className="absolute -z-10 -top-10 -left-10 w-56 h-56 rounded-[40%] bg-brand-600/30 blur-3xl" />
-          <img src="/src/assets/avatar.svg" alt="avatar" className="w-full max-w-sm mx-auto" />
+          <img src="/src/assets/avatar.jpeg" alt="avatar" className="w-full rounded-ss-[166px] max-w-sm mx-auto border-[2.5px] border-red-600/80" />
         </motion.div>
       </div>
     </section>

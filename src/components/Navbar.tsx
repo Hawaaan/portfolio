@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from "../assets/avatar.jpeg"
 
 const links = [
   { href: '#home', label: 'Home' },
@@ -25,7 +26,7 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
     <header className="sticky top-0 z-50 backdrop-blur border-b border-zinc-800/60 bg-zinc-950/60">
       <div className="container flex items-center justify-between py-3">
         <a href="#home" className="flex items-center gap-2 font-bold">
-          <span className="inline-grid place-items-center w-9 h-9 rounded-[9px] bg-brand-600">EZ</span>
+          <span className="inline-grid place-items-center w-11 h-11 rounded-full bg-brand-600 "><img src={logo} alt="" className='rounded-[100px] h-10 w-10'/></span>
           <span className="hidden sm:block">Eng Zoja</span>
         </a>
 
@@ -33,10 +34,6 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
           {links.map(l => (
             <a key={l.href} className="text-zinc-300 hover:text-white" href={l.href}>{l.label}</a>
           ))}
-          <button onClick={onToggle} className="btn-ghost" aria-label="toggle theme">
-            {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
-            <span className="hidden sm:inline">Theme</span>
-          </button>
         </nav>
 
         <button className="md:hidden btn-ghost" onClick={() => setOpen(v=>!v)} aria-label="menu">
@@ -55,10 +52,6 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
               {links.map(l => (
                 <a key={l.href} className="text-zinc-300 hover:text-white" href={l.href}>{l.label}</a>
               ))}
-              <button onClick={onToggle} className="btn-ghost self-start">
-                {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
-                Theme
-              </button>
             </div>
           </motion.div>
         )}
