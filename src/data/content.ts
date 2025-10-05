@@ -1,3 +1,4 @@
+import { image } from "framer-motion/client";
 
 export const services = [
 {
@@ -39,8 +40,8 @@ export const services = [
 ];
 
 export const portfolio = [
-  { id: 1, title: 'Photo App UI/UX', tag: 'UI/UX', company: 'Bokeh Network' },
-  { id: 2, title: 'Mobile App Design', tag: 'App Dev', company: 'Tech Innovators' },
+  { id: 1, title: 'calculate app', tag: 'UI/UX', company: 'Project' },
+  { id: 2, title: 'Navbar', tag: 'App Dev', company: 'Tech Innovators' },
   { id: 3, title: 'Interaction Design', tag: 'Product', company: 'HealthTrack' },
   { id: 4, title: 'Design Consultation', tag: 'Branding', company: 'Creative Pulse' },
 ];
@@ -49,7 +50,7 @@ export const portfolio = [
 
 export const skills = [
   { name: "HTML5", value: 98, note: "Semantic markup" },
-  { name: "CSS3 / Sass", value: 92, note: "Layouts, animations, BEM" },
+  { name: "CSS3", value: 92, note: "Layouts, animations, BEM" },
   { name: "JavaScript (ES6+)", value: 95, note: "Async, modules, patterns" },
   { name: "TypeScript", value: 90, note: "Typesafe React apps" },
   { name: "React", value: 95, note: "Hooks, context, performance" },
