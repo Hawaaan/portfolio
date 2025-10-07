@@ -26,7 +26,7 @@ export default function Clients(): JSX.Element {
     <section id="clients" className="section">
       <div className="container">
         <div className="text-center mb-8">
-          <div className="badge">Partners</div>
+          <div className="badge">Partners Company</div>
           <h2 className="h2 mt-2">Trusted by industry leaders</h2>
         </div>
         <div className="relative overflow-hidden">
