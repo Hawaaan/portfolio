@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import avatarUrl from "../public/avatar.jpeg"
+import avatarUrl from "../assets/avatar.jpeg"
  
 
 const links = [
