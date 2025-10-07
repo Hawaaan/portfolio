@@ -14,12 +14,13 @@ export default function Contact(): JSX.Element {
     emailjs
       .sendForm('service_yoasfvl', 'template_wjmiogr', e.currentTarget, 'HauTBnUroDZdYXQQA')
       .then(
-        () => {
-          toast.success('Fariintaada waa la soo diray!');
-        },
-        () => {
-          toast.error('Fariintaada lama dirin. Fadlan isku day mar kale.');
-        }
+() => {
+  toast.success('Your message has been sent successfully!');
+},
+() => {
+  toast.error('Your message could not be sent. Please try again.');
+}
+
       );
   };
 
