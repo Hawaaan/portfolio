@@ -1,4 +1,9 @@
 import { image } from "framer-motion/client";
+import Cart from "../assets/logos/cart-shops.png"; 
+import cirfeed from "../assets/Cirfeed.png"; 
+import yiksi from "../assets/logos/yiksi.png"; 
+import echo from "../assets/logos/echo.png"; 
+import calculator from "../assets/logos/Calculator.png"; 
 
 export const services = [
 {
@@ -39,13 +44,14 @@ export const services = [
   },
 ];
 
-export const portfolio = [
-  { id: 1, title: 'calculate app', tag: 'UI/UX', company: 'Project' },
-  { id: 2, title: 'Navbar', tag: 'App Dev', company: 'Tech Innovators' },
-  { id: 3, title: 'Interaction Design', tag: 'Product', company: 'HealthTrack' },
-  { id: 4, title: 'Design Consultation', tag: 'Branding', company: 'Creative Pulse' },
-];
 
+// src/data/content.ts (ama halka aad ku haysid xogta)
+export const portfolio = [
+  { id: 1, title: "yiksi exchange", tag: "UI Web", company: "Project",         link: "https://website.yiksi.exchange/",      image: yiksi },           // ✅ isticmaal import-kii kore
+  { id: 2, title: "Cirfeed",    tag: "Website", company: "Project", link: "https://hawaaan.github.io/Cirfeeed.com/src/login.html",    image: cirfeed },
+  { id: 3, title: "Echo Daily", tag: "Product", company: "Project", link: "https://hawaaan.github.io/Echo-daily/src/index.html", image: echo },
+  { id: 4, title: "App calculator", tag: "App", company: "Creative Pulse", link: "https://hawaaan.github.io/Project-Assignment/Calculator.html", image: calculator },
+];
 
 
 export const skills = [
