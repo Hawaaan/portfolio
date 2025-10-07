@@ -34,6 +34,7 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
           {links.map(l => (
             <a key={l.href} className="text-zinc-300 hover:text-white" href={l.href}>{l.label}</a>
           ))}
+
         </nav>
 
         <button className="md:hidden btn-ghost" onClick={() => setOpen(v=>!v)} aria-label="menu">

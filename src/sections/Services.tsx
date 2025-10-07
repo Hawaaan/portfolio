@@ -40,7 +40,7 @@ export default function Services(): JSX.Element {
               </div>
 
               <p className="muted mt-3">{s.desc}</p>
-              <a href="#contact" className="btn-ghost mt-6">Get a Quote →</a>
+              <a href="#contact" className="btn-ghost mt-6"> Get a Quote → </a>
             </motion.div>
           );
         })}
