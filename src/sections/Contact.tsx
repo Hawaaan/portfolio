@@ -1,18 +1,25 @@
 import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import toastify styles
+import 'react-toastify/dist/ReactToastify.css';
+// ⬇️ ku dar hal import oo keliya si aan u helno nooca FormEvent
+import type React from 'react';
 
 export default function Contact(): JSX.Element {
-  const sendEmail = (e) =>  {
+  // ⬇️ ku dara nooca event-ka; isticmaal e.currentTarget oo yahay HTMLFormElement
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_yoasfvl', 'template_wjmiogr', e.target, 'HauTBnUroDZdYXQQA')
-      .then((result) => {
-        toast.success("Fariintaada waa la soo diray!"); // Toast for success
-      }, (error) => {
-        toast.error("Fariintaada lama dirin. Fadlan isku day mar kale."); // Toast for error
-      });
+    emailjs
+      .sendForm('service_yoasfvl', 'template_wjmiogr', e.currentTarget, 'HauTBnUroDZdYXQQA')
+      .then(
+        () => {
+          toast.success('Fariintaada waa la soo diray!');
+        },
+        () => {
+          toast.error('Fariintaada lama dirin. Fadlan isku day mar kale.');
+        }
+      );
   };
 
   return (
@@ -37,8 +44,7 @@ export default function Contact(): JSX.Element {
           </div>
         </motion.div>
 
-        <motion.form initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          onSubmit={sendEmail} className="card p-6 space-y-4">
+        <motion.form initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} onSubmit={sendEmail} className="card p-6 space-y-4">
           <div>
             <label className="text-sm">Name</label>
             <input name="user_name" required className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2" />
@@ -49,13 +55,12 @@ export default function Contact(): JSX.Element {
           </div>
           <div>
             <label className="text-sm">Message</label>
-            <textarea name="message" required rows={5} className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2"></textarea>
+            <textarea name="message" required rows={5} className="mt-1 w-full rounded-xl bg-zinc-950 border border-zinc-800 px-3 py-2" />
           </div>
           <button className="btn-primary">Send message</button>
         </motion.form>
       </div>
 
-      {/* Toast Container */}
       <ToastContainer />
     </section>
   );

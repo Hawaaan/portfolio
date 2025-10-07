@@ -4,8 +4,12 @@ import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-const getIcon = (name?: string): LucideIcon =>
-  (Icons as Record<string, LucideIcon>)[name ?? "Code2"] ?? Icons.Code2;
+// ✅ ku samee cast ammaan ah mar uun, kadib isticmaal
+const ICONS = Icons as unknown as Record<string, LucideIcon>;
+
+const getIcon = (name?: string): LucideIcon => {
+  return ICONS[name ?? "Code2"] ?? Icons.Code2;
+};
 
 export default function Services(): JSX.Element {
   return (
