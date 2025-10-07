@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import avatarUrl from "../assets/avatar.jpeg";
+import logo from "../assets/logos/herro.jpeg";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -27,7 +27,7 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
         <a href="#home" className="flex items-center gap-2 font-bold">
           <span className="inline-grid place-items-center w-11 h-11 rounded-full bg-brand-600 ">
             <img
-              src={avatarUrl}
+              src={logo}
               alt="logo"
               className="rounded-[100px] h-10 w-10"
             />
