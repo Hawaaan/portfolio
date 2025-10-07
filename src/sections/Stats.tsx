@@ -26,9 +26,10 @@ const items = [
 
 // Parse helper so behavior is easy to test and reason about
 export function parseStat(input: string): { sign: string; num: number } {
-  const m = input.match(/^(?<sign>[+\-]?)(?<num>\d+)/);
-  const sign = (m?.groups?.sign ?? "").trim();
-  const num = Number(m?.groups?.num ?? 0);
+  // ✅ ka saar named groups si ay ula shaqeyso ES2015
+  const m = input.match(/^([+\-]?)(\d+)/);
+  const sign = (m?.[1] ?? "").trim();
+  const num = Number(m?.[2] ?? 0);
   return { sign, num: Number.isFinite(num) ? num : 0 };
 }
 
@@ -147,3 +148,4 @@ export default function Stats(): JSX.Element {
     </section>
   );
 }
+
