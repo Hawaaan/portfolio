@@ -26,7 +26,7 @@ export default function Navbar({ theme, onToggle }: Props): JSX.Element {
       <div className="container flex items-center justify-between py-3">
         <a href="#home" className="flex items-center gap-2 font-bold">
           <span className="inline-grid place-items-center w-11 h-11 rounded-full bg-brand-600 ">
-            <img src={logo} alt="" className="rounded-[100px] h-10 w-10" />
+            <img src="/avatar.jpeg" alt="avatar"  className="rounded-[100px] h-10 w-10" />
           </span>
           <span className="hidden sm:block">Eng Zoja</span>
         </a>
