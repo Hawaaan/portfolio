@@ -103,5 +103,11 @@ export const posts = [
     read: "5 min",
     link: "#",
   },
+  // Haddii aadan haysan sawirrada, ku dar placeholders hadda: /portfolio/…
+// Ku raar public/:
+//   public/portfolio/calc-app.jpg
+//   public/portfolio/navbar.jpg
+//   public/portfolio/interaction.jpg
+//   public/portfolio/consult.jpg
 ];
 
