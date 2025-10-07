@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // ⬇️ ku dar hal import oo keliya si aan u helno nooca FormEvent
