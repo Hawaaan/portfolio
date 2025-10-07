@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/avatar.jpeg";
+import logo from "public/avatar.jpeg";
 
 const links = [
   { href: "#home", label: "Home" },
