@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import TitleRotator from "../components/TitleRotator";
+import logo from '../assets/logos/herro.jpeg'
 
 const TITLES = [
   "Crafting Code into Creative Experiences",
@@ -41,7 +42,7 @@ export default function Hero(): JSX.Element {
           className="relative"
         >
           <div className="absolute -z-10 -top-10 -left-10 w-56 h-56 rounded-[40%] bg-brand-600/30 blur-3xl" />
-          <img src="/src/assets/avatar.jpeg" alt="avatar" className="w-full rounded-ss-[166px] max-w-sm mx-auto border-[2.5px] border-red-600/80" />
+          <img src={logo} alt="avatar" className="w-full rounded-ss-[166px] max-w-sm mx-auto border-[2.5px] border-red-600/80" />
         </motion.div>
       </div>
     </section>
